@@ -1,27 +1,23 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>안녕!</h1>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>제목</th>
-      </tr>
-      {% for a in article %}
-      <tr>
-        <td>{{ a.pk }}</td>
-        <td>{{ a.title }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-    <form action="/articles/create/">
-    <input type="submit" value="글 작성하기">
-    </form>
-</body>
-</html>
+{% extends 'articles/base.html' %}
+{% block body %}
+<div class="m-2">
+    <h1 class="mb-3">Django!</h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">제목</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in article %}
+    <tr>
+      <th scope="row">{{ a.pk }}</th>
+      <td><a href="/articles/{{ a.pk }}/detail/">{{ a.title }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="d-flex justify-content-end mr-2"><a href="/articles/create/" role="button" class="btn btn-outline-secondary">글 작성하기</a></div>
+</div>
+{% endblock %}

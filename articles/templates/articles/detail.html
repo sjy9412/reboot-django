@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.created_at }}</p>
-    <p>{{ article.updated_at }}</p>
-    <h2>{{ article.content }}</h2>
-    <a href="/articles/{{ article.pk }}/update">수정하기</a>
-    <a href="/articles/{{ article.pk }}/delete">삭제하기</a>
-</body>
-</html>
+{% extends 'articles/base.html' %}
+{% block body %}
+<div class="card" style="width: 50rem;">
+  <div class="card-body">
+    <h2 class="card-title text-center">{{ article.title }}</h2>
+    <h6 class="card-subtitle m-2 text-muted text-right">{{ article.created_at }}</h6>
+    <h6 class="card-subtitle m-2 text-muted text-right">{{ article.updated_at }}</h6>
+    <h3 class="card-text">{{ article.content }}</h3>
+    <div class="d-flex justify-content-end">
+    <a href="/articles/{{ article.pk }}/update" class="btn btn-success mr-2">수정하기</a>
+    <a href=/articles/{{ article.pk }}/delete"" class="btn btn-danger mr-2">삭제하기</a>
+    <a href="/articles/" class="btn btn-secondary mr-2">처음으로</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

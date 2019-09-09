@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/articles/read/">
-    <input type="text" name="title" placeholder="제목을 입력하세요."><br>
-    <textarea name="content" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea><br>
+{% extends 'articles/base.html' %}
+{% block body %}
+<form action="/articles/read/">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">제목</label>
+    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력하세요.">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1" placeholder="내용을 입력하세요">Example textarea</label>
+    <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
     <input type="submit" value="입력">
     </form>
-</body>
-</html>
+{% endblock %}

@@ -42,3 +42,6 @@ def delete(request, article_pk):
     article = Article.objects.get(pk=article_pk)
     article.delete()
     return redirect(f'/articles/')
+
+def jiyoung(request):
+    return render(request, 'articles/jiyoung.html')

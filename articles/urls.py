@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:article_pk>/detail/', views.detail),
     path('<int:article_pk>/delete/', views.delete),
     path('jiyoung/', views.jiyoung),
+    path('choice/', views.choice),
 ]

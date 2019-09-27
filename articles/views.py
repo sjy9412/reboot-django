@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Article
+# from IPython import embed
 
 # Create your views here.
 def index(request):
@@ -11,11 +12,13 @@ def create(request):
     return render(request, 'articles/create.html')
 
 def read(request):
-    title = request.GET.get('title')
-    content = request.GET.get('content')
+    title = request.POST.get('title')
+    content = request.POST.get('content')
+    image = request.FILES.get('image')
     article = Article()
     article.title = title
     article.content = content
+    article.image = image
     article.save()
     return redirect(f'/articles/{article.pk}/detail')
 
@@ -45,3 +48,6 @@ def delete(request, article_pk):
 
 def jiyoung(request):
     return render(request, 'articles/jiyoung.html')
+
+def choice(request):
+    return render(request, 'articles/choice.html')

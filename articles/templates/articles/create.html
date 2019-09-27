@@ -1,6 +1,7 @@
 {% extends 'articles/base.html' %}
 {% block body %}
-<form action="/articles/read/">
+<form action="/articles/read/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
   <div class="form-group">
     <label for="exampleFormControlInput1">제목</label>
     <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력하세요.">
@@ -8,6 +9,8 @@
   <div class="form-group">
     <label for="exampleFormControlTextarea1" placeholder="내용을 입력하세요">Example textarea</label>
     <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="image">이미지:</label>
+    <input type="file" name="image" id="image">
   </div>
     <input type="submit" value="입력">
     </form>

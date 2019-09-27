@@ -6,7 +6,10 @@
     <h6 class="card-subtitle m-2 text-muted text-right">{{ article.created_at }}</h6>
     <h6 class="card-subtitle m-2 text-muted text-right">{{ article.updated_at }}</h6>
     <h3 class="card-text">{{ article.content }}</h3>
-    <div class="d-flex justify-content-end">
+    
+      <img src="{{ article.image.url }}" alt="{{ article.image.name }}">
+  
+    <div class="d-flex justify-content-end mt-3">
     <a href="/articles/{{ article.pk }}/update" class="btn btn-success mr-2">수정하기</a>
     <a href=/articles/{{ article.pk }}/delete"" class="btn btn-danger mr-2">삭제하기</a>
     <a href="/articles/" class="btn btn-secondary mr-2">처음으로</a>
